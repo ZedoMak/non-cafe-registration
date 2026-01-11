@@ -135,8 +135,7 @@ public class DataStore {
         return null;
     }
 
-    // here this is a dummy data 😒.. well it is used to create a student if there
-    // is non
+    // here we used dummy data to create student information on app start (if we would have used database we would load it from there)
     public void createDummyStudents() {
         if (students.isEmpty()) {
             students.add(new Student("John Doe", "std1", "123", Campus.MAIN, "CS", 2, "CBE100", "0911"));
