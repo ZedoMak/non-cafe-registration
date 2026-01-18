@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="700.0" prefWidth="1000.0" stylesheets="@../views/css/styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.noncafe.controller.StudentController">
+
+    <left>
+        <VBox prefWidth="250.0" spacing="10.0" styleClass="sidebar">
+            <padding><Insets top="30" bottom="20"/></padding>
+
+            <Label text="NON-CAFE" textFill="WHITE">
+                <font><Font name="Segoe UI Bold" size="24.0" /></font>
+                <VBox.margin><Insets left="30.0" bottom="5.0" /></VBox.margin>
+            </Label>
+            <Label text="Student Portal" textFill="#bdc3c7">
+                <font><Font name="Segoe UI" size="14.0" /></font>
+                <VBox.margin><Insets left="30.0" bottom="40.0" /></VBox.margin>
+            </Label>
+
+            <Label text="Profile Info" textFill="#95a5a6" style="-fx-font-weight: bold; -fx-padding: 0 0 5 30;"/>
+            <Label fx:id="nameLabel" text="Loading..." textFill="WHITE" wrapText="true" style="-fx-padding: 0 0 5 30; -fx-font-size: 16px;"/>
+            <Label fx:id="idLabel" text="ID: ..." textFill="#bdc3c7" style="-fx-padding: 0 0 20 30;"/>
+
+            <Label text="Campus" textFill="#95a5a6" style="-fx-font-weight: bold; -fx-padding: 0 0 5 30;"/>
+            <Label fx:id="campusLabel" text="Loading..." textFill="WHITE" style="-fx-padding: 0 0 20 30; -fx-font-size: 14px;"/>
+
+            <Label text="Department" textFill="#95a5a6" style="-fx-font-weight: bold; -fx-padding: 0 0 5 30;"/>
+            <Label fx:id="deptYearLabel" text="Loading..." textFill="WHITE" style="-fx-padding: 0 0 20 30; -fx-font-size: 14px;"/>
+
+            <Region VBox.vgrow="ALWAYS" />
+
+            <Button mnemonicParsing="false" onAction="#onLogout" prefWidth="180.0" styleClass="button-danger" text="Sign Out">
+                <VBox.margin><Insets left="35.0" /></VBox.margin>
+            </Button>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="25.0" style="-fx-padding: 30;">
+
+            <HBox spacing="20.0" styleClass="card">
+                <VBox spacing="5" HBox.hgrow="ALWAYS" alignment="CENTER_LEFT">
+                    <Label text="Registration Deadline" textFill="#7f8c8d" />
+                    <Label fx:id="deadlineLabel" text="Loading..." textFill="#2c3e50"><font><Font name="System Bold" size="16.0" /></font></Label>
+                </VBox>
+                <Separator orientation="VERTICAL" />
+                <VBox spacing="5" HBox.hgrow="ALWAYS" alignment="CENTER_LEFT">
+                    <Label text="System Status" textFill="#7f8c8d" />
+                    <Label fx:id="systemStatusLabel" text="Loading..." textFill="#27ae60"><font><Font name="System Bold" size="16.0" /></font></Label>
+                </VBox>
+                <Separator orientation="VERTICAL" />
+                <VBox spacing="5" HBox.hgrow="ALWAYS" alignment="CENTER_LEFT">
+                    <Label text="Next Disbursement" textFill="#7f8c8d" />
+                    <Label fx:id="disbursementDeadlineLabel" text="Loading..." textFill="#e67e22"><font><Font name="System Bold" size="16.0" /></font></Label>
+                </VBox>
+            </HBox>
+
+            <HBox spacing="25.0">
+                <VBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS"
+                      style="-fx-background-color: linear-gradient(to right, #2980b9, #3498db); -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 5); -fx-padding: 25;">
+                    <Label text="Available Balance" textFill="#ecf0f1"><font><Font size="16.0" /></font></Label>
+                    <Label fx:id="balanceLabel" text="ETB 0.00" textFill="WHITE">
+                        <font><Font name="System Bold" size="36.0" /></font>
+                        <VBox.margin><Insets top="5.0" /></VBox.margin>
+                    </Label>
+                    <Label fx:id="bankAccountLabel" text="Bank: ****" textFill="#bdc3c7">
+                        <VBox.margin><Insets top="10.0" /></VBox.margin>
+                    </Label>
+                </VBox>
+
+                <VBox alignment="CENTER_LEFT" prefWidth="350.0" spacing="10" styleClass="card">
+                    <Label text="My Registration" styleClass="sub-header"/>
+                    <Label fx:id="registrationStatusLabel" text="UNKNOWN" textFill="#2c3e50">
+                        <font><Font name="System Bold" size="24.0" /></font>
+                    </Label>
+                    <HBox spacing="15.0">
+                        <Button fx:id="registerBtn" onAction="#onRegister" text="Register" styleClass="button-success" prefWidth="120.0"/>
+                        <Button fx:id="unregisterBtn" onAction="#onUnregister" text="Unregister" styleClass="button-danger" prefWidth="120.0"/>
+                    </HBox>
+                </VBox>
+            </HBox>
+
+            <VBox VBox.vgrow="ALWAYS" styleClass="card" spacing="10">
+                <Label text="Transaction History" styleClass="sub-header"/>
+                <ListView fx:id="transactionHistoryList" VBox.vgrow="ALWAYS" style="-fx-background-insets: 0; -fx-padding: 5; -fx-border-color: #bdc3c7; -fx-border-radius: 4;"/>
+            </VBox>
+
+        </VBox>
+    </center>
+</BorderPane>
