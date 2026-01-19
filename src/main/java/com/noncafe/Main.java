@@ -1,8 +1,4 @@
 package com.noncafe;
-
-public class Main {
-}
-
 import com.noncafe.data.DataStore;
 import com.noncafe.util.SceneSwitcher;
 import javafx.application.Application;
