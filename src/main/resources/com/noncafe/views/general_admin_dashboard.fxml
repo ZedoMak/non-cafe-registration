@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="800.0" prefWidth="1300.0" stylesheets="@../views/css/styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.noncafe.controller.GeneralAdminController">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" prefHeight="70.0" spacing="20.0" styleClass="sidebar">
+            <padding><Insets left="20" right="20"/></padding>
+            <Label text="GENERAL ADMIN DASHBOARD" textFill="WHITE"><font><Font name="System Bold" size="22.0"/></font></Label>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="adminNameLabel" text="Admin Name" textFill="WHITE"><font><Font size="16.0"/></font></Label>
+            <Button text="Logout" onAction="#onLogout" styleClass="button-danger"/>
+        </HBox>
+    </top>
+
+    <center>
+        <HBox spacing="20" style="-fx-padding: 20;">
+
+            <VBox spacing="20" HBox.hgrow="ALWAYS">
+                <VBox styleClass="card" spacing="10">
+                    <Label text="System Status" styleClass="sub-header"/>
+                    <HBox spacing="20" alignment="CENTER_LEFT">
+                        <Label fx:id="statusLabel" text="SYSTEM: WAITING" style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+                        <Label fx:id="deadlineLabel" text="-" style="-fx-font-size: 18;"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Button fx:id="startSemesterBtn" text="Start Semester" onAction="#onStartSemester" styleClass="button-success"/>
+                        <Button fx:id="pauseTimerBtn" text="Pause" onAction="#onPauseTimer" styleClass="button-warning"/>
+                        <Button fx:id="resumeTimerBtn" text="Resume" onAction="#onResumeTimer" styleClass="button-primary"/>
+                        <Button fx:id="stopTimerBtn" text="Stop" onAction="#onStopTimer" styleClass="button-danger"/>
+                    </HBox>
+                </VBox>
+
+                <VBox styleClass="card" spacing="15">
+                    <Label text="Configuration and Budget" styleClass="sub-header"/>
+                    <GridPane hgap="10" vgap="10">
+                        <Label text="Cost/Student (ETB):" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <TextField fx:id="monthlyCostField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                        <Label text="Sem. Months:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <TextField fx:id="semesterMonthsField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                        <Label text="Sem. Days:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                        <TextField fx:id="semesterDaysField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                        <Label text="Reg. Duration (min):" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                        <TextField fx:id="regDurationField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                    </GridPane>
+                    <HBox spacing="10">
+                        <Button fx:id="calculateBudgetBtn" text="Calculate Budget" onAction="#onCalculateBudget" styleClass="button-primary"/>
+                        <Button fx:id="distributeBtn" text="Release Funds" onAction="#onDistributeBudget" styleClass="button-warning"/>
+                    </HBox>
+                    <Separator/>
+                    <HBox spacing="40">
+                        <VBox>
+                            <Label text="Total Budget" textFill="#7f8c8d"/>
+                            <Label fx:id="totalBudgetField" text="ETB 0.00" styleClass="metric-value"/>
+                        </VBox>
+                        <VBox>
+                            <Label text="Registered Students" textFill="#7f8c8d"/>
+                            <Label fx:id="registeredCountLabel" text="0" styleClass="metric-value"/>
+                        </VBox>
+                    </HBox>
+                </VBox>
+
+                <VBox styleClass="card" spacing="10" VBox.vgrow="ALWAYS">
+                    <Label text="Campus Status Monitor" styleClass="sub-header"/>
+                    <TableView fx:id="campusStatusTable" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="colCampusName" text="Campus" prefWidth="150"/>
+                            <TableColumn fx:id="colCampusState" text="State" prefWidth="150"/>
+                            <TableColumn fx:id="colCampusMonth" text="Cycle Progress" prefWidth="150"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+            </VBox>
+
+            <VBox spacing="20" prefWidth="400">
+                <VBox styleClass="card" spacing="5">
+                    <Label text="Campus Allocations" styleClass="sub-header"/>
+                    <GridPane vgap="5" hgap="10">
+                        <Label text="Main:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <Label fx:id="mainCampusBudget" text="0.00" style="-fx-font-weight:bold" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                        <Label text="Techno:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <Label fx:id="technoCampusBudget" text="0.00" style="-fx-font-weight:bold" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                        <Label text="Agri:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                        <Label fx:id="agriCampusBudget" text="0.00" style="-fx-font-weight:bold" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                        <Label text="Referral:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                        <Label fx:id="referralCampusBudget" text="0.00" style="-fx-font-weight:bold" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                    </GridPane>
+                </VBox>
+
+                <VBox styleClass="card" spacing="10" VBox.vgrow="ALWAYS">
+                    <Label text="Manage Admins" styleClass="sub-header"/>
+                    <TableView fx:id="adminsTable" prefHeight="200">
+                        <columns>
+                            <TableColumn fx:id="colAdminName" text="Name" prefWidth="120"/>
+                            <TableColumn fx:id="colAdminId" text="ID" prefWidth="80"/>
+                            <TableColumn fx:id="colAdminCampus" text="Campus" prefWidth="120"/>
+                        </columns>
+                    </TableView>
+                    <VBox spacing="5">
+                        <HBox spacing="5">
+                            <TextField fx:id="newAdminName" promptText="Name" HBox.hgrow="ALWAYS"/>
+                            <TextField fx:id="newAdminId" promptText="ID" prefWidth="80"/>
+                        </HBox>
+                        <HBox spacing="5">
+                            <TextField fx:id="newAdminPass" promptText="Pass" HBox.hgrow="ALWAYS"/>
+                            <ComboBox fx:id="newAdminCampus" promptText="Campus" prefWidth="150"/>
+                        </HBox>
+                    </VBox>
+                    <HBox spacing="10">
+                        <Button text="Add Admin" onAction="#onAddAdmin" styleClass="button-success" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                        <Button text="Delete" onAction="#onDeleteAdmin" styleClass="button-danger"/>
+                    </HBox>
+                </VBox>
+
+                <VBox styleClass="card" spacing="10" VBox.vgrow="ALWAYS">
+                    <Label text="System Logs" styleClass="sub-header"/>
+                    <ListView fx:id="historyListView" VBox.vgrow="ALWAYS"/>
+                </VBox>
+            </VBox>
+        </HBox>
+    </center>
+</BorderPane>

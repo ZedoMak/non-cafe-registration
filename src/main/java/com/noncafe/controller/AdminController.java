@@ -85,6 +85,7 @@ public class AdminController {
             return true;
         });
     }
+
     private void updateStatistics(List<Student> students) {
         long pending = students.stream().filter(s -> s.getRegistrationStatus() == StudentRegistrationStatus.PENDING_APPROVAL).count();
         long approved = students.stream().filter(s -> s.getRegistrationStatus() == StudentRegistrationStatus.APPROVED).count();
@@ -165,6 +166,7 @@ public class AdminController {
             performPayout(1);
         }
     }
+
     private void performPayout(int monthToPay) {
         SystemState state = DataStore.getInstance().getSystemState();
         int maxMonths = state.getSemesterMonths();
@@ -247,4 +249,3 @@ public class AdminController {
     @FXML public void onLogout() { if(clock!=null) clock.stop(); SessionManager.logout(); SceneSwitcher.switchTo("login.fxml"); }
     private void showAlert(Alert.AlertType type, String title, String content) { Alert alert = new Alert(type); alert.setTitle(title); alert.setContentText(content); alert.showAndWait(); }
 }
-

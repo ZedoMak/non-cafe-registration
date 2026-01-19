@@ -5,27 +5,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="750.0" prefWidth="1200.0" stylesheets="@../views/css/styles.css"
-            xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.noncafe.controller.AdminController"
-            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://javafx.com/javafx/19
-http://javafx.com/javafx/19 ">
+<BorderPane prefHeight="750.0" prefWidth="1200.0" stylesheets="@../views/css/styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.noncafe.controller.AdminController">
 
     <top>
         <HBox alignment="CENTER_LEFT" prefHeight="70.0" spacing="20" styleClass="sidebar">
-            <padding>
-                <Insets left="20" right="20"/>
-            </padding>
-            <Label text="CAMPUS ADMIN PANEL" textFill="WHITE">
-                <font>
-                    <Font name="System Bold" size="22.0"/>
-                </font>
-            </Label>
-            <Label fx:id="campusLabel" text="CAMPUS" textFill="#bdc3c7">
-                <font>
-                    <Font size="18.0"/>
-                </font>
-            </Label>
+            <padding><Insets left="20" right="20"/></padding>
+            <Label text="CAMPUS ADMIN PANEL" textFill="WHITE"><font><Font name="System Bold" size="22.0"/></font></Label>
+            <Label fx:id="campusLabel" text="CAMPUS" textFill="#bdc3c7"><font><Font size="18.0"/></font></Label>
             <Region HBox.hgrow="ALWAYS"/>
             <Label fx:id="adminNameLabel" text="User" textFill="WHITE"/>
             <Button text="Logout" onAction="#onLogout" styleClass="button-danger"/>
@@ -36,22 +22,10 @@ http://javafx.com/javafx/19 ">
         <HBox spacing="20" style="-fx-padding: 20;">
             <VBox spacing="20" HBox.hgrow="ALWAYS">
                 <HBox spacing="15">
-                    <VBox styleClass="card" prefWidth="200">
-                        <Label text="Budget"/>
-                        <Label fx:id="budgetLabel" styleClass="metric-value"/>
-                    </VBox>
-                    <VBox styleClass="card" prefWidth="150">
-                        <Label text="Total Students"/>
-                        <Label fx:id="registeredCountLabel" styleClass="metric-value"/>
-                    </VBox>
-                    <VBox styleClass="card" prefWidth="150">
-                        <Label text="Pending"/>
-                        <Label fx:id="pendingCountLabel" styleClass="metric-value" textFill="#f39c12"/>
-                    </VBox>
-                    <VBox styleClass="card" prefWidth="150">
-                        <Label text="Approved"/>
-                        <Label fx:id="approvedCountLabel" styleClass="metric-value" textFill="#27ae60"/>
-                    </VBox>
+                    <VBox styleClass="card" prefWidth="200"><Label text="Budget"/><Label fx:id="budgetLabel" styleClass="metric-value"/></VBox>
+                    <VBox styleClass="card" prefWidth="150"><Label text="Total Students"/><Label fx:id="registeredCountLabel" styleClass="metric-value"/></VBox>
+                    <VBox styleClass="card" prefWidth="150"><Label text="Pending"/><Label fx:id="pendingCountLabel" styleClass="metric-value" textFill="#f39c12"/></VBox>
+                    <VBox styleClass="card" prefWidth="150"><Label text="Approved"/><Label fx:id="approvedCountLabel" styleClass="metric-value" textFill="#27ae60"/></VBox>
                 </HBox>
 
                 <VBox styleClass="card" VBox.vgrow="ALWAYS" spacing="10">
@@ -83,13 +57,12 @@ http://javafx.com/javafx/19 ">
             <VBox spacing="20" prefWidth="300">
                 <VBox styleClass="card" spacing="10">
                     <Label text="Disbursement Cycle" styleClass="sub-header"/>
-                    <Label fx:id="disbursementMonthLabel" text="Month: -"
-                           style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+                    <Label fx:id="disbursementMonthLabel" text="Month: -" style="-fx-font-size: 18; -fx-font-weight: bold;"/>
                     <Label fx:id="disbursementDeadlineLabel" text="Waiting..."/>
                     <Separator/>
-                    <Button fx:id="distributeCostSharingBtn" text="INITIATE MONTH 1" onAction="#onDistributeCostSharing"
-                            maxWidth="Infinity" styleClass="button-primary"/>
+                    <Button fx:id="distributeCostSharingBtn" text="INITIATE MONTH 1" onAction="#onDistributeCostSharing" maxWidth="Infinity" styleClass="button-primary"/>
                 </VBox>
+
                 <VBox styleClass="card" spacing="10">
                     <Label text="Quick Add" styleClass="sub-header"/>
                     <TextField fx:id="newStudentName" promptText="Name"/>

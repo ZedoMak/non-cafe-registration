@@ -1,12 +1,10 @@
 package com.noncafe;
 
-public class Main {
-}
-
 import com.noncafe.data.DataStore;
 import com.noncafe.util.SceneSwitcher;
 import javafx.application.Application;
 import javafx.stage.Stage;
+
 import java.util.Objects;
 
 public class Main extends Application {
@@ -17,8 +15,10 @@ public class Main extends Application {
 
         SceneSwitcher.setStage(stage);
         stage.setTitle("Non-Cafe Registration System");
+
         SceneSwitcher.switchTo("login.fxml");
     }
+
     public static void main(String[] args) {
         launch();
     }
