@@ -177,9 +177,11 @@ src/main
 
 | Login Screen | Student Dashboard |
 | :---: | :---: |
-| ![Login](images/login.png) | ![Student Dash](images/student.png) |
+![Login alt](https://github.com/ZedoMak/non-cafe-registration/blob/566ecd50d79134800753ce5bbff7adf589718985/images/login.png)
+![Student Dash](https://github.com/ZedoMak/non-cafe-registration/blob/566ecd50d79134800753ce5bbff7adf589718985/images/student.png)
 
 | Admin Dashboard | General Admin Panel |
 | :---: | :---: |
-| ![Admin Dash](images/admin.png) | ![Gen Admin](images/genadmin.png) |
+![Admin Dash](images/admin.png)
+![Gen Admin](images/genadmin.png) |
 
